@@ -1,4 +1,4 @@
-# 🥟 Taste of Crimea
+# Taste of Crimea
 
 Website for a small family café serving Crimean and Black Sea cuisine. Friendly,
 warm style: a sand-and-sea palette, emoji instead of heavy photos, soft rounded

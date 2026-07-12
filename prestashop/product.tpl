@@ -19,12 +19,12 @@
 
     <div class="product-detail">
 
-      {* Product image from PrestaShop; emoji fallback if there's no photo *}
+      {* Product image from PrestaShop; monogram fallback if there's no photo *}
       <div class="product-media">
         {if $product.cover}
           <img src="{$product.cover.large.url}" alt="{$product.name}">
         {else}
-          🥟
+          <span>{$product.name|truncate:10:''}</span>
         {/if}
       </div>
 
@@ -49,7 +49,7 @@
           </div>
 
           <button type="submit" name="add" class="btn btn-primary" style="width:100%; max-width:320px">
-            Add to cart 🛒
+            Add to cart
           </button>
         </form>
 

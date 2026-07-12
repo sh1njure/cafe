@@ -6,14 +6,14 @@
   <title>Beef Cheburek — Taste of Crimea</title>
   <meta name="description" content="Beef Cheburek from Taste of Crimea: thin crispy dough and a juicy minced-beef filling. Folded and fried to order.">
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥟</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%231f7a8c'/><text x='50' y='72' font-size='60' text-anchor='middle' fill='%23fff' font-family='Segoe UI, sans-serif'>T</text></svg>">
 </head>
 <body>
 
   <header class="site-header">
     <div class="container">
-      <a class="logo" href="index.html"><span class="mark">🥟</span><span>Taste of <span class="accent">Crimea</span></span></a>
-      <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+      <a class="logo" href="index.html"><span>Taste of <span class="accent">Crimea</span></span></a>
+      <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">&#9776;</button>
       <nav class="nav" id="nav">
         <a href="index.html">Home</a>
         <a href="menu.html">Menu</a>
@@ -27,7 +27,7 @@
       <p class="breadcrumbs"><a href="index.html">Home</a> / <a href="menu.html">Menu</a> / Beef Cheburek</p>
 
       <div class="product-detail">
-        <div class="product-media">🥟</div>
+        <div class="product-media"><span>Cheburek</span></div>
 
         <div class="product-info">
           <span class="tag">bestseller</span>
@@ -36,25 +36,25 @@
 
           <div class="price-lg">$3.20</div>
 
-          <div class="notice" id="notice">🎉 Added to your order! Thanks — we'll have it ready soon.</div>
+          <div class="notice" id="notice">Added to your order! Thanks — we'll have it ready soon.</div>
 
           <div class="qty">
-            <button type="button" onclick="changeQty(-1)" aria-label="Less">−</button>
+            <button type="button" onclick="changeQty(-1)" aria-label="Less">&minus;</button>
             <input type="text" id="qty" value="1" readonly>
             <button type="button" onclick="changeQty(1)" aria-label="More">+</button>
           </div>
 
-          <button class="btn btn-primary" style="width:100%; max-width:320px" onclick="addToCart()">Add to order 🛒</button>
+          <button class="btn btn-primary" style="width:100%; max-width:320px" onclick="addToCart()">Add to order</button>
 
           <ul class="specs">
             <li><span>Weight</span><span>180 g</span></li>
             <li><span>Filling</span><span>beef, onion, spices</span></li>
             <li><span>Cooking time</span><span>7–10 minutes</span></li>
-            <li><span>Spice level</span><span>🌶️ mild</span></li>
+            <li><span>Spice level</span><span>mild</span></li>
             <li><span>Served</span><span>hot</span></li>
           </ul>
 
-          <p style="font-size:.9rem; color:var(--muted)">💡 Chef's tip: pair your cheburek with thyme tea or ayran — a classic Crimean combination.</p>
+          <p style="font-size:.9rem; color:var(--muted)">Chef's tip: pair your cheburek with thyme tea or ayran — a classic Crimean combination.</p>
         </div>
       </div>
     </div>
@@ -67,7 +67,7 @@
       <div class="menu-grid" style="margin-top:30px">
 
         <article class="product-card">
-          <div class="thumb">🧀</div>
+          <div class="thumb"><span>Cheese</span></div>
           <div class="body">
             <h3>Cheese Cheburek</h3>
             <p class="desc">Melty cheese in crispy dough.</p>
@@ -76,7 +76,7 @@
         </article>
 
         <article class="product-card">
-          <div class="thumb">☕</div>
+          <div class="thumb"><span>Coffee</span></div>
           <div class="body">
             <h3>Sand-Brewed Coffee</h3>
             <p class="desc">Strong oriental-style coffee.</p>
@@ -85,7 +85,7 @@
         </article>
 
         <article class="product-card">
-          <div class="thumb">🍵</div>
+          <div class="thumb"><span>Tea</span></div>
           <div class="body">
             <h3>Thyme Tea</h3>
             <p class="desc">Fragrant Crimean herbal tea.</p>
@@ -101,7 +101,7 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <h4>🥟 Taste of Crimea</h4>
+          <h4>Taste of Crimea</h4>
           <p style="color:#b5a89c; margin:0">A small family café serving Crimean and Black Sea cuisine. Cooking with love since 2014.</p>
         </div>
         <div>
@@ -121,7 +121,7 @@
           </ul>
         </div>
       </div>
-      <div class="footer-bottom">© 2014–2026 Taste of Crimea. Made with 💛 by the sea.</div>
+      <div class="footer-bottom">© 2014–2026 Taste of Crimea. Made with care by the sea.</div>
     </div>
   </footer>
 
