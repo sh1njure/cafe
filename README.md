@@ -1,67 +1,66 @@
 # 🥟 Taste of Crimea
 
-Сайт маленького семейного кафе крымской и черноморской кухни. Дружелюбный,
-тёплый стиль: песочно-морская палитра, эмодзи вместо тяжёлых фото, мягкие
-скругления и «домашние» тексты.
+Website for a small family café serving Crimean and Black Sea cuisine. Friendly,
+warm style: a sand-and-sea palette, emoji instead of heavy photos, soft rounded
+corners and "homey" copy.
 
-## Страницы
+## Pages
 
-| Файл             | Что это                                                        |
+| File             | What it is                                                     |
 |------------------|----------------------------------------------------------------|
-| `index.html`     | Главная — hero, «почему мы», хиты меню, призыв к брони          |
-| `menu.html`      | Меню — горячее, десерты, напитки (несколько позиций)           |
-| `product.html`   | Страница товара — чебурек с мясом, выбор кол-ва, «с этим берут» |
-| `contacts.html`  | Контакты — адрес, часы, соцсети, форма бронирования            |
-| `assets/css/style.css` | Единая тема оформления                                   |
+| `index.html`     | Home — hero, "why us", menu highlights, booking CTA            |
+| `menu.html`      | Menu — mains, desserts, drinks (several items)                |
+| `product.html`   | Product page — beef cheburek, quantity picker, "often together" |
+| `contacts.html`  | Contacts — address, hours, social, booking form                |
+| `assets/css/style.css` | Shared theme                                             |
 
-Сайт полностью статический — открывается двойным кликом по `index.html`,
-никакой сборки не нужно. Локально можно поднять так:
+The site is fully static — just open `index.html` in a browser, no build step.
+To serve it locally:
 
 ```bash
 python3 -m http.server 8000
-# затем открыть http://localhost:8000
+# then open http://localhost:8000
 ```
 
-## Адаптация под PrestaShop
+## Adapting to PrestaShop
 
-**Коротко: да, это реально, и заготовка уже лежит в `prestashop/`.**
+**Short answer: yes, it's realistic, and a starter file already lives in `prestashop/`.**
 
-Важно понимать, как устроен PrestaShop: движок написан на PHP, а страницы
-рендерятся не из `.html`, а из шаблонов **Smarty** (`.tpl`) внутри активной
-темы. Поэтому «просто загрузить html-файл» не получится — но вся вёрстка и
-стили переносятся почти без изменений. Меняется только «начинка»: статический
-текст заменяется на переменные PrestaShop (`{$product.name}`, `{$product.price}`
-и т.п.).
+Here's the key thing about how PrestaShop works: the engine is written in PHP,
+and pages are rendered not from `.html` files but from **Smarty** templates
+(`.tpl`) inside the active theme. So you can't "just upload an HTML file" — but
+all the markup and styles carry over almost unchanged. Only the "filling"
+changes: static text is replaced with PrestaShop variables (`{$product.name}`,
+`{$product.price}`, etc.).
 
-Что переносится как есть:
-- **CSS** (`assets/css/style.css`) — кладётся в `themes/<тема>/assets/css/`
-  и подключается в теме. Классы (`.product-card`, `.btn`, `.hero` …) работают
-  без правок.
-- **HTML-разметка** блоков — оборачивается в Smarty-блоки темы.
+Carries over as-is:
+- **CSS** (`assets/css/style.css`) — drop it into `themes/<theme>/assets/css/`
+  and enqueue it in the theme. The classes (`.product-card`, `.btn`, `.hero` …)
+  work without edits.
+- **HTML markup** of blocks — wrapped in the theme's Smarty blocks.
 
-Что нужно доработать под PrestaShop:
-| Статический сайт            | В PrestaShop                                   |
-|-----------------------------|------------------------------------------------|
-| `product.html`              | `templates/catalog/product.tpl` (Smarty)       |
-| `menu.html` (карточки)      | категория + `product-list.tpl` / модуль товаров |
-| Жёстко прописанные блюда    | товары в админке (Каталог → Товары)             |
-| Кнопка «Добавить в заказ»   | форма `add-to-cart` PrestaShop + корзина        |
-| Форма бронирования          | контактный модуль / кастомный модуль            |
-| Шапка/подвал                | `header.tpl` / `footer.tpl` темы                |
+Needs adapting for PrestaShop:
+| Static site                | In PrestaShop                                    |
+|----------------------------|--------------------------------------------------|
+| `product.html`             | `templates/catalog/product.tpl` (Smarty)         |
+| `menu.html` (cards)        | category + `product-list.tpl` / products module  |
+| Hard-coded dishes          | products in the admin (Catalog → Products)       |
+| "Add to order" button      | PrestaShop `add-to-cart` form + cart             |
+| Booking form               | contact module / custom module                   |
+| Header/footer              | theme's `header.tpl` / `footer.tpl`              |
 
-В `prestashop/product.tpl` — рабочий пример: тот же макет страницы товара, но
-данные берутся из PrestaShop (изображение, название, цена, характеристики,
-форма добавления в корзину).
+`prestashop/product.tpl` is a working example: the same product-page layout, but
+the data comes from PrestaShop (image, name, price, features, add-to-cart form).
 
-### Пошаговый план миграции
-1. Создать (или взять дочернюю от) тему в `themes/`.
-2. Скопировать `style.css` в ассеты темы и подключить в `_partials/`.
-3. Разбить шапку/подвал в `header.tpl` / `footer.tpl`.
-4. Перенести карточку товара и страницу товара в `catalog/*.tpl`
-   (за основу — `prestashop/product.tpl`).
-5. Завести блюда как товары, категории «Горячее / Десерты / Напитки».
-6. Форму бронирования оформить отдельным модулем или через контактную форму.
+### Migration steps
+1. Create (or make a child of) a theme in `themes/`.
+2. Copy `style.css` into the theme's assets and enqueue it in `_partials/`.
+3. Split the header/footer into `header.tpl` / `footer.tpl`.
+4. Move the product card and product page into `catalog/*.tpl`
+   (using `prestashop/product.tpl` as a base).
+5. Create the dishes as products, with categories "Mains / Desserts / Drinks".
+6. Build the booking form as a separate module or via the contact form.
 
-**Оценка:** базовая интеграция статического макета в тему PrestaShop — это
-работа порядка 1–2 дней для одного разработчика (без учёта наполнения
-каталога). Если нужно, могу довести `prestashop/` до полноценной темы.
+**Estimate:** integrating this static layout into a PrestaShop theme is roughly
+1–2 days of work for a single developer (not counting catalog data entry). Happy
+to take `prestashop/` all the way to a full theme if you'd like.

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Контакты — Taste of Crimea</title>
-  <meta name="description" content="Контакты кафе Taste of Crimea: адрес, телефон, часы работы и форма бронирования столика.">
+  <title>Contacts — Taste of Crimea</title>
+  <meta name="description" content="Contact Taste of Crimea: address, phone, opening hours and a table booking form.">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥟</text></svg>">
 </head>
@@ -13,57 +13,56 @@
   <header class="site-header">
     <div class="container">
       <a class="logo" href="index.html"><span class="mark">🥟</span><span>Taste of <span class="accent">Crimea</span></span></a>
-      <button class="nav-toggle" aria-label="Меню" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+      <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
       <nav class="nav" id="nav">
-        <a href="index.html">Главная</a>
-        <a href="menu.html">Меню</a>
-        <a href="product.html">Чебурек</a>
-        <a href="contacts.html" class="active">Контакты</a>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="contacts.html" class="active">Contacts</a>
       </nav>
     </div>
   </header>
 
   <section class="section">
     <div class="container">
-      <h1 class="section-title">Загляните к нам 👋</h1>
-      <p class="section-sub">Мы всегда рады гостям. Забронируйте столик или просто приходите — найдём место для каждого.</p>
+      <h1 class="section-title">Come and see us 👋</h1>
+      <p class="section-sub">We're always happy to have guests. Book a table or just drop by — we'll find a spot for everyone.</p>
 
       <div class="contact-grid">
 
         <div class="contact-card">
-          <h2>Мы на связи</h2>
+          <h2>Get in touch</h2>
           <ul class="contact-list">
-            <li><span class="ico">📍</span><div><strong>Адрес</strong><br>Крым, г. Ялта, Набережная им. Ленина, 12</div></li>
-            <li><span class="ico">📞</span><div><strong>Телефон</strong><br><a href="tel:+79780000000">+7 (978) 000-00-00</a></div></li>
-            <li><span class="ico">✉️</span><div><strong>Почта</strong><br><a href="mailto:hello@tasteofcrimea.ru">hello@tasteofcrimea.ru</a></div></li>
-            <li><span class="ico">🕐</span><div><strong>Часы работы</strong><br>Ежедневно с 9:00 до 23:00</div></li>
-            <li><span class="ico">💬</span><div><strong>Мы в соцсетях</strong><br>@tasteofcrimea</div></li>
+            <li><span class="ico">📍</span><div><strong>Address</strong><br>12 Lenin Embankment, Yalta, Crimea</div></li>
+            <li><span class="ico">📞</span><div><strong>Phone</strong><br><a href="tel:+79780000000">+7 (978) 000-00-00</a></div></li>
+            <li><span class="ico">✉️</span><div><strong>Email</strong><br><a href="mailto:hello@tasteofcrimea.com">hello@tasteofcrimea.com</a></div></li>
+            <li><span class="ico">🕐</span><div><strong>Opening hours</strong><br>Daily, 9:00 AM – 11:00 PM</div></li>
+            <li><span class="ico">💬</span><div><strong>Social</strong><br>@tasteofcrimea</div></li>
           </ul>
-          <div class="map-embed" style="margin-top:20px">🗺️ Здесь будет карта проезда<br>(набережная, рядом с причалом)</div>
+          <div class="map-embed" style="margin-top:20px">🗺️ Map goes here<br>(on the promenade, next to the pier)</div>
         </div>
 
         <div class="contact-card">
-          <h2>Забронировать стол</h2>
-          <p style="color:var(--muted)">Оставьте заявку — мы перезвоним и подтвердим бронь.</p>
-          <div class="notice" id="notice">🎉 Спасибо! Мы получили заявку и скоро свяжемся с вами.</div>
+          <h2>Book a table</h2>
+          <p style="color:var(--muted)">Leave a request — we'll call you back to confirm.</p>
+          <div class="notice" id="notice">🎉 Thank you! We've received your request and will be in touch shortly.</div>
           <form onsubmit="return submitForm(event)">
             <div class="field">
-              <label for="name">Ваше имя</label>
-              <input type="text" id="name" name="name" placeholder="Как к вам обращаться?" required>
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" placeholder="What should we call you?" required>
             </div>
             <div class="field">
-              <label for="phone">Телефон</label>
+              <label for="phone">Phone</label>
               <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
             </div>
             <div class="field">
-              <label for="guests">Количество гостей</label>
+              <label for="guests">Number of guests</label>
               <input type="number" id="guests" name="guests" min="1" value="2">
             </div>
             <div class="field">
-              <label for="msg">Пожелания</label>
-              <textarea id="msg" name="msg" rows="3" placeholder="Столик у окна, детский стульчик..."></textarea>
+              <label for="msg">Special requests</label>
+              <textarea id="msg" name="msg" rows="3" placeholder="Table by the window, a high chair..."></textarea>
             </div>
-            <button type="submit" class="btn btn-primary" style="width:100%">Отправить заявку</button>
+            <button type="submit" class="btn btn-primary" style="width:100%">Send request</button>
           </form>
         </div>
 
@@ -76,26 +75,26 @@
       <div class="footer-grid">
         <div>
           <h4>🥟 Taste of Crimea</h4>
-          <p style="color:#b5a89c; margin:0">Маленькое семейное кафе крымской и черноморской кухни. Готовим с любовью с 2014 года.</p>
+          <p style="color:#b5a89c; margin:0">A small family café serving Crimean and Black Sea cuisine. Cooking with love since 2014.</p>
         </div>
         <div>
-          <h4>Меню</h4>
+          <h4>Menu</h4>
           <ul class="footer-links">
-            <li><a href="menu.html">Все блюда</a></li>
-            <li><a href="product.html">Чебуреки</a></li>
-            <li><a href="menu.html">Напитки</a></li>
+            <li><a href="menu.html">All dishes</a></li>
+            <li><a href="product.html">Chebureki</a></li>
+            <li><a href="menu.html">Drinks</a></li>
           </ul>
         </div>
         <div>
-          <h4>Контакты</h4>
+          <h4>Contacts</h4>
           <ul class="footer-links">
             <li><a href="tel:+79780000000">+7 (978) 000-00-00</a></li>
-            <li><a href="mailto:hello@tasteofcrimea.ru">hello@tasteofcrimea.ru</a></li>
-            <li><a href="contacts.html">Как нас найти</a></li>
+            <li><a href="mailto:hello@tasteofcrimea.com">hello@tasteofcrimea.com</a></li>
+            <li><a href="contacts.html">Find us</a></li>
           </ul>
         </div>
       </div>
-      <div class="footer-bottom">© 2014–2026 Taste of Crimea. Сделано с 💛 у моря.</div>
+      <div class="footer-bottom">© 2014–2026 Taste of Crimea. Made with 💛 by the sea.</div>
     </div>
   </footer>
 

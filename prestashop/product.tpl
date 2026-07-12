@@ -1,9 +1,9 @@
 {*
-  Пример адаптации страницы товара под PrestaShop (Smarty).
-  Это тот же макет, что и в product.html, но статические данные
-  заменены на переменные PrestaShop. Файл кладётся в тему:
-    themes/<ваша-тема>/templates/catalog/product.tpl
-  и наследует стили из assets/css/style.css.
+  Example of adapting the product page to PrestaShop (Smarty).
+  Same layout as product.html, but the static data is replaced with
+  PrestaShop variables. Place this file in your theme at:
+    themes/<your-theme>/templates/catalog/product.tpl
+  and inherit the styles from assets/css/style.css.
 *}
 {extends file='page.tpl'}
 
@@ -12,14 +12,14 @@
   <div class="container">
 
     <p class="breadcrumbs">
-      <a href="{$urls.base_url}">Главная</a> /
-      <a href="{$urls.pages.category|default:'#'}">Меню</a> /
+      <a href="{$urls.base_url}">Home</a> /
+      <a href="{$urls.pages.category|default:'#'}">Menu</a> /
       {$product.name}
     </p>
 
     <div class="product-detail">
 
-      {* Изображение товара из PrestaShop; эмодзи-заглушка, если фото нет *}
+      {* Product image from PrestaShop; emoji fallback if there's no photo *}
       <div class="product-media">
         {if $product.cover}
           <img src="{$product.cover.large.url}" alt="{$product.name}">
@@ -29,31 +29,31 @@
       </div>
 
       <div class="product-info">
-        {if $product.new}<span class="tag">новинка</span>{/if}
+        {if $product.new}<span class="tag">new</span>{/if}
         <h1 style="margin-top:12px">{$product.name}</h1>
 
         <p style="color:var(--muted)">{$product.description_short nofilter}</p>
 
         <div class="price-lg">{$product.price}</div>
 
-        {* Форма добавления в корзину PrestaShop *}
+        {* PrestaShop add-to-cart form *}
         <form action="{$urls.pages.cart}" method="post" id="add-to-cart-or-refresh">
           <input type="hidden" name="token" value="{$static_token}">
           <input type="hidden" name="id_product" value="{$product.id_product}" id="product_page_product_id">
           <input type="hidden" name="qty" value="1">
 
           <div class="qty">
-            <button type="button" class="js-minus" aria-label="Меньше">−</button>
+            <button type="button" class="js-minus" aria-label="Less">−</button>
             <input type="text" name="qty_display" value="1" readonly>
-            <button type="button" class="js-plus" aria-label="Больше">+</button>
+            <button type="button" class="js-plus" aria-label="More">+</button>
           </div>
 
           <button type="submit" name="add" class="btn btn-primary" style="width:100%; max-width:320px">
-            Добавить в корзину 🛒
+            Add to cart 🛒
           </button>
         </form>
 
-        {* Характеристики из атрибутов/фич товара *}
+        {* Specs pulled from the product's features *}
         <ul class="specs">
           {foreach from=$product.features item=feature}
             <li><span>{$feature.name}</span><span>{$feature.value}</span></li>
