@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taste of Crimea — уютное кафе крымской кухни</title>
+  <meta name="description" content="Taste of Crimea — маленькое семейное кафе с домашней крымской и черноморской кухней. Чебуреки, плов, кофе по-восточному и свежая выпечка.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥟</text></svg>">
+</head>
+<body>
+
+  <!-- ШАПКА -->
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="index.html">
+        <span class="mark">🥟</span>
+        <span>Taste of <span class="accent">Crimea</span></span>
+      </a>
+      <button class="nav-toggle" aria-label="Меню" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+      <nav class="nav" id="nav">
+        <a href="index.html" class="active">Главная</a>
+        <a href="menu.html">Меню</a>
+        <a href="product.html">Чебурек</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="badges">
+        <span class="badge">🌊 у самого моря</span>
+        <span class="badge">👨‍🍳 домашние рецепты</span>
+        <span class="badge">☕ кофе на песке</span>
+      </div>
+      <h1>Вкус Крыма<br>в каждом кусочке</h1>
+      <p class="lead">Маленькое семейное кафе, где готовят так, как дома у бабушки в Бахчисарае: сочные чебуреки, ароматный плов и кофе по-восточному на раскалённом песке.</p>
+      <div class="hero-actions">
+        <a href="menu.html" class="btn btn-primary">Посмотреть меню</a>
+        <a href="contacts.html" class="btn btn-outline">Забронировать стол</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПОЧЕМУ МЫ -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Почему у нас тепло</h2>
+      <p class="section-sub">Мы маленькие — и этим гордимся. Каждого гостя знаем в лицо, а каждое блюдо готовим руками.</p>
+      <div class="features">
+        <div class="feature">
+          <div class="emoji">🌿</div>
+          <h3>Свежие продукты</h3>
+          <p>Овощи и зелень — с крымских рынков, мясо — от проверенных фермеров.</p>
+        </div>
+        <div class="feature">
+          <div class="emoji">🔥</div>
+          <h3>Готовим при вас</h3>
+          <p>Чебуреки лепим и жарим по заказу — только с пылу с жару.</p>
+        </div>
+        <div class="feature">
+          <div class="emoji">💛</div>
+          <h3>По-домашнему</h3>
+          <p>Семейные рецепты, которые передаются у нас из поколения в поколение.</p>
+        </div>
+        <div class="feature">
+          <div class="emoji">🎶</div>
+          <h3>Уютная атмосфера</h3>
+          <p>Тёплый свет, живая музыка по вечерам и вид на набережную.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ХИТЫ МЕНЮ -->
+  <section class="section" style="background:var(--sand-2)">
+    <div class="container">
+      <h2 class="section-title">Наши хиты</h2>
+      <p class="section-sub">Пара позиций, ради которых к нам возвращаются снова и снова.</p>
+      <div class="menu-grid">
+
+        <article class="product-card">
+          <div class="thumb">🥟</div>
+          <div class="body">
+            <span class="tag">хит</span>
+            <h3 style="margin-top:10px">Чебурек с мясом</h3>
+            <p class="desc">Тонкое хрустящее тесто и сочная начинка из рубленой говядины с луком и специями.</p>
+            <div class="row">
+              <span class="price">180 ₽</span>
+              <a href="product.html" class="btn btn-outline" style="padding:8px 18px">Подробнее</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="thumb">🍚</div>
+          <div class="body">
+            <h3>Плов по-крымски</h3>
+            <p class="desc">Рассыпчатый рис, нежная баранина, морковь и целая головка чеснока.</p>
+            <div class="row">
+              <span class="price">320 ₽</span>
+              <a href="menu.html" class="btn btn-outline" style="padding:8px 18px">Подробнее</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="thumb">☕</div>
+          <div class="body">
+            <h3>Кофе на песке</h3>
+            <p class="desc">Крепкий кофе по-восточному, сваренный в турке на раскалённом песке.</p>
+            <div class="row">
+              <span class="price">150 ₽</span>
+              <a href="menu.html" class="btn btn-outline" style="padding:8px 18px">Подробнее</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+      <div style="text-align:center; margin-top:36px">
+        <a href="menu.html" class="btn btn-primary">Всё меню</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПРИЗЫВ -->
+  <section class="section cta-band">
+    <div class="container">
+      <h2 class="section-title">Проголодались? 😋</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,.9)">Забронируйте столик заранее или просто загляните — мы всегда рады гостям.</p>
+      <div style="text-align:center">
+        <a href="contacts.html" class="btn btn-outline">Связаться с нами</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПОДВАЛ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>🥟 Taste of Crimea</h4>
+          <p style="color:#b5a89c; margin:0">Маленькое семейное кафе крымской и черноморской кухни. Готовим с любовью с 2014 года.</p>
+        </div>
+        <div>
+          <h4>Меню</h4>
+          <ul class="footer-links">
+            <li><a href="menu.html">Все блюда</a></li>
+            <li><a href="product.html">Чебуреки</a></li>
+            <li><a href="menu.html">Напитки</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Контакты</h4>
+          <ul class="footer-links">
+            <li><a href="tel:+79780000000">+7 (978) 000-00-00</a></li>
+            <li><a href="mailto:hello@tasteofcrimea.ru">hello@tasteofcrimea.ru</a></li>
+            <li><a href="contacts.html">Как нас найти</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2014–2026 Taste of Crimea. Сделано с 💛 у моря.</div>
+    </div>
+  </footer>
+
+</body>
+</html>

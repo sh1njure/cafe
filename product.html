@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Чебурек с мясом — Taste of Crimea</title>
+  <meta name="description" content="Чебурек с мясом от Taste of Crimea: тонкое хрустящее тесто и сочная начинка из рубленой говядины. Лепим и жарим по заказу.">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥟</text></svg>">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="index.html"><span class="mark">🥟</span><span>Taste of <span class="accent">Crimea</span></span></a>
+      <button class="nav-toggle" aria-label="Меню" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+      <nav class="nav" id="nav">
+        <a href="index.html">Главная</a>
+        <a href="menu.html">Меню</a>
+        <a href="product.html" class="active">Чебурек</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <p class="breadcrumbs"><a href="index.html">Главная</a> / <a href="menu.html">Меню</a> / Чебурек с мясом</p>
+
+      <div class="product-detail">
+        <div class="product-media">🥟</div>
+
+        <div class="product-info">
+          <span class="tag">хит продаж</span>
+          <h1 style="margin-top:12px">Чебурек с мясом</h1>
+          <p style="color:var(--muted)">Наш фирменный чебурек: тончайшее тесто, которое хрустит, и щедрая начинка из рубленой говядины с луком, зеленью и специями. Лепим и жарим прямо при вас — подаём горячим, с пылу с жару.</p>
+
+          <div class="price-lg">180 ₽</div>
+
+          <div class="notice" id="notice">🎉 Добавлено в заказ! Спасибо, скоро всё приготовим.</div>
+
+          <div class="qty">
+            <button type="button" onclick="changeQty(-1)" aria-label="Меньше">−</button>
+            <input type="text" id="qty" value="1" readonly>
+            <button type="button" onclick="changeQty(1)" aria-label="Больше">+</button>
+          </div>
+
+          <button class="btn btn-primary" style="width:100%; max-width:320px" onclick="addToCart()">Добавить в заказ 🛒</button>
+
+          <ul class="specs">
+            <li><span>Вес</span><span>180 г</span></li>
+            <li><span>Начинка</span><span>говядина, лук, специи</span></li>
+            <li><span>Время приготовления</span><span>7–10 минут</span></li>
+            <li><span>Острота</span><span>🌶️ мягкая</span></li>
+            <li><span>Подача</span><span>горячим</span></li>
+          </ul>
+
+          <p style="font-size:.9rem; color:var(--muted)">💡 Совет от повара: возьмите к чебуреку чай с чабрецом или айран — классическое крымское сочетание.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПОХОЖИЕ -->
+  <section class="section" style="background:var(--sand-2)">
+    <div class="container">
+      <h2 class="section-title">С этим часто берут</h2>
+      <div class="menu-grid" style="margin-top:30px">
+
+        <article class="product-card">
+          <div class="thumb">🧀</div>
+          <div class="body">
+            <h3>Чебурек с сыром</h3>
+            <p class="desc">Тянущийся сыр в хрустящем тесте.</p>
+            <div class="row"><span class="price">160 ₽</span><a href="#" class="btn btn-outline" style="padding:8px 18px">Подробнее</a></div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="thumb">☕</div>
+          <div class="body">
+            <h3>Кофе на песке</h3>
+            <p class="desc">Крепкий кофе по-восточному.</p>
+            <div class="row"><span class="price">150 ₽</span><a href="#" class="btn btn-outline" style="padding:8px 18px">Подробнее</a></div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="thumb">🍵</div>
+          <div class="body">
+            <h3>Чай с чабрецом</h3>
+            <p class="desc">Ароматный крымский травяной чай.</p>
+            <div class="row"><span class="price">90 ₽</span><a href="#" class="btn btn-outline" style="padding:8px 18px">Подробнее</a></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>🥟 Taste of Crimea</h4>
+          <p style="color:#b5a89c; margin:0">Маленькое семейное кафе крымской и черноморской кухни. Готовим с любовью с 2014 года.</p>
+        </div>
+        <div>
+          <h4>Меню</h4>
+          <ul class="footer-links">
+            <li><a href="menu.html">Все блюда</a></li>
+            <li><a href="product.html">Чебуреки</a></li>
+            <li><a href="menu.html">Напитки</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Контакты</h4>
+          <ul class="footer-links">
+            <li><a href="tel:+79780000000">+7 (978) 000-00-00</a></li>
+            <li><a href="mailto:hello@tasteofcrimea.ru">hello@tasteofcrimea.ru</a></li>
+            <li><a href="contacts.html">Как нас найти</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2014–2026 Taste of Crimea. Сделано с 💛 у моря.</div>
+    </div>
+  </footer>
+
+  <script>
+    function changeQty(d){
+      var el = document.getElementById('qty');
+      var v = Math.max(1, parseInt(el.value,10) + d);
+      el.value = v;
+    }
+    function addToCart(){
+      var n = document.getElementById('notice');
+      n.classList.add('show');
+      n.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  </script>
+
+</body>
+</html>

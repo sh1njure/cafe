@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Меню — Taste of Crimea</title>
+  <meta name="description" content="Меню кафе Taste of Crimea: чебуреки, плов по-крымски, лагман, пахлава, кофе на песке и другие блюда крымской кухни.">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥟</text></svg>">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="index.html"><span class="mark">🥟</span><span>Taste of <span class="accent">Crimea</span></span></a>
+      <button class="nav-toggle" aria-label="Меню" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+      <nav class="nav" id="nav">
+        <a href="index.html">Главная</a>
+        <a href="menu.html" class="active">Меню</a>
+        <a href="product.html">Чебурек</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <h1 class="section-title">Наше меню</h1>
+      <p class="section-sub">Настоящая крымская кухня — просто, честно и очень вкусно.</p>
+
+      <h2 style="margin-top:20px">🥟 Горячее</h2>
+      <div class="menu-grid" style="margin-bottom:48px">
+
+        <article class="product-card">
+          <div class="thumb">🥟</div>
+          <div class="body">
+            <span class="tag">хит</span>
+            <h3 style="margin-top:10px">Чебурек с мясом</h3>
+            <p class="desc">Тонкое хрустящее тесто и сочная начинка из рубленой говядины с луком.</p>
+            <div class="row">
+              <span class="price">180 ₽</span>
+              <a href="product.html" class="btn btn-outline" style="padding:8px 18px">Подробнее</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="thumb">🧀</div>
+          <div class="body">
+            <h3>Чебурек с сыром</h3>
+            <p class="desc">Тянущийся сыр в хрустящем тесте — любимец детей и взрослых.</p>
+            <div class="row">
+              <span class="price">160 ₽</span>
+              <a href="product.html" class="btn btn-outline" style="padding:8px 18px">Подробнее</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="thumb">🍚</div>
+          <div class="body">
+            <h3>Плов по-крымски</h3>
+            <p class="desc">Рассыпчатый рис, нежная баранина, морковь и головка чеснока.</p>
+            <div class="row">
+              <span class="price">320 ₽</span>
+              <a href="product.html" class="btn btn-outline" style="padding:8px 18px">Подробнее</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="thumb">🍜</div>
+          <div class="body">
+            <h3>Лагман</h3>
+            <p class="desc">Тянутая лапша ручной работы с мясом и овощами в наваристом бульоне.</p>
+            <div class="row">
+              <span class="price">290 ₽</span>
+              <a href="product.html" class="btn btn-outline" style="padding:8px 18px">Подробнее</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <h2>🍰 Десерты</h2>
+      <div class="menu-grid" style="margin-bottom:48px">
+
+        <article class="product-card">
+          <div class="thumb">🍯</div>
+          <div class="body">
+            <h3>Пахлава</h3>
+            <p class="desc">Слоёная сладость с орехами и мёдом по старинному рецепту.</p>
+            <div class="row">
+              <span class="price">120 ₽</span>
+              <a href="product.html" class="btn btn-outline" style="padding:8px 18px">Подробнее</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="thumb">🥧</div>
+          <div class="body">
+            <h3>Домашняя пахлава-рулет</h3>
+            <p class="desc">Нежный рулет с грецким орехом — идеально к кофе.</p>
+            <div class="row">
+              <span class="price">140 ₽</span>
+              <a href="product.html" class="btn btn-outline" style="padding:8px 18px">Подробнее</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <h2>☕ Напитки</h2>
+      <div class="menu-grid">
+
+        <article class="product-card">
+          <div class="thumb">☕</div>
+          <div class="body">
+            <span class="tag">любимое</span>
+            <h3 style="margin-top:10px">Кофе на песке</h3>
+            <p class="desc">Крепкий кофе по-восточному, сваренный в турке на раскалённом песке.</p>
+            <div class="row">
+              <span class="price">150 ₽</span>
+              <a href="product.html" class="btn btn-outline" style="padding:8px 18px">Подробнее</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="thumb">🍵</div>
+          <div class="body">
+            <h3>Чай с чабрецом</h3>
+            <p class="desc">Ароматный крымский травяной чай с горных склонов.</p>
+            <div class="row">
+              <span class="price">90 ₽</span>
+              <a href="product.html" class="btn btn-outline" style="padding:8px 18px">Подробнее</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="thumb">🥤</div>
+          <div class="body">
+            <h3>Домашний лимонад</h3>
+            <p class="desc">Освежающий лимонад с мятой и лаймом. Как раз для жаркого дня.</p>
+            <div class="row">
+              <span class="price">130 ₽</span>
+              <a href="product.html" class="btn btn-outline" style="padding:8px 18px">Подробнее</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>🥟 Taste of Crimea</h4>
+          <p style="color:#b5a89c; margin:0">Маленькое семейное кафе крымской и черноморской кухни. Готовим с любовью с 2014 года.</p>
+        </div>
+        <div>
+          <h4>Меню</h4>
+          <ul class="footer-links">
+            <li><a href="menu.html">Все блюда</a></li>
+            <li><a href="product.html">Чебуреки</a></li>
+            <li><a href="menu.html">Напитки</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Контакты</h4>
+          <ul class="footer-links">
+            <li><a href="tel:+79780000000">+7 (978) 000-00-00</a></li>
+            <li><a href="mailto:hello@tasteofcrimea.ru">hello@tasteofcrimea.ru</a></li>
+            <li><a href="contacts.html">Как нас найти</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2014–2026 Taste of Crimea. Сделано с 💛 у моря.</div>
+    </div>
+  </footer>
+
+</body>
+</html>
