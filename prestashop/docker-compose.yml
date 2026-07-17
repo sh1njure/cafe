@@ -1,0 +1,58 @@
+# Turnkey PrestaShop for Taste of Crimea.
+# Boots a real, auto-installed PrestaShop 8 + database, with the child
+# theme mounted in so you can activate it from the admin.
+#
+#   cd prestashop
+#   docker compose up -d          # first boot auto-installs (~2-3 min)
+#
+# Storefront:  http://localhost:8080
+# Admin:       http://localhost:8080/admincafe
+#   email:     hello@tasteofcrimea.com
+#   password:  PrestaShop123!
+#
+# Then: import prestashop/import/products.csv (Catalog -> Import),
+# and activate the "Taste of Crimea" theme (Design -> Theme & Logo).
+services:
+  mysql:
+    image: mariadb:10.11
+    environment:
+      MYSQL_ROOT_PASSWORD: prestashop
+      MYSQL_DATABASE: prestashop
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  prestashop:
+    image: prestashop/prestashop:8.1-apache
+    depends_on:
+      mysql:
+        condition: service_healthy
+    ports:
+      - "8080:80"
+    environment:
+      DB_SERVER: mysql
+      DB_NAME: prestashop
+      DB_USER: root
+      DB_PASSWD: prestashop
+      PS_INSTALL_AUTO: 1          # auto-run the installer on first boot
+      PS_ERASE_DB: 0
+      PS_DEV_MODE: 1
+      PS_DOMAIN: localhost:8080
+      PS_FOLDER_ADMIN: admincafe
+      PS_FOLDER_INSTALL: install
+      PS_LANGUAGE: en
+      PS_COUNTRY: gb
+      ADMIN_MAIL: hello@tasteofcrimea.com
+      ADMIN_PASSWD: PrestaShop123!
+    volumes:
+      - ps_data:/var/www/html
+      # Live-mount the child theme so it shows up in the theme picker:
+      - ./theme/tasteofcrimea:/var/www/html/themes/tasteofcrimea
+
+volumes:
+  db_data:
+  ps_data:

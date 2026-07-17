@@ -1,0 +1,10 @@
+Name;Categories;Price tax excluded;Tax rules ID;Description short;Quantity;Available for order;Active
+Beef Cheburek;Home:Mains;3.20;0;Thin, crispy dough with a juicy filling of minced beef, onion and spices.;1000;1;1
+Cheese Cheburek;Home:Mains;2.90;0;Melty cheese in crispy dough — loved by kids and grown-ups alike.;1000;1;1
+Crimean Plov;Home:Mains;5.60;0;Fluffy rice, tender lamb, carrots and a whole head of garlic.;1000;1;1
+Lagman;Home:Mains;5.10;0;Hand-pulled noodles with meat and vegetables in a rich broth.;1000;1;1
+Baklava;Home:Desserts;2.10;0;Layered pastry with nuts and honey, made from an old family recipe.;1000;1;1
+Walnut Roll;Home:Desserts;2.50;0;A tender roll with walnuts — perfect with a cup of coffee.;1000;1;1
+Sand-Brewed Coffee;Home:Drinks;2.60;0;Strong oriental-style coffee brewed in a cezve on hot sand.;1000;1;1
+Thyme Tea;Home:Drinks;1.60;0;Fragrant Crimean herbal tea from the mountain slopes.;1000;1;1
+Homemade Lemonade;Home:Drinks;2.30;0;Refreshing lemonade with mint and lime. Just right for a hot day.;1000;1;1

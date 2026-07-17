@@ -1,92 +1,101 @@
-# Building the PrestaShop site with this design
+# Taste of Crimea — full PrestaShop site
 
-Two independent halves. Do them in this order.
+This folder is a **turnkey package**: run one command and you get a real,
+installed PrestaShop with this design and the café's products.
 
-- **A. Get PrestaShop running and put your products in** — no coding, done in the admin panel.
-- **B. Make it look like this design** — install the child theme in `theme/tasteofcrimea/`.
+Important honesty first: PrestaShop is a PHP + MySQL **server application**, not a
+folder of pages. A "finished website" only exists once it's *installed and running*.
+So the deliverable here is the package that stands that site up — not a static
+export you double-click. Two ways to run it:
 
-> Heads-up: this scaffold targets PrestaShop **1.7.6+ / 8.x** and can't be verified
-> without a live install. Always try it on a staging/local copy before touching a
-> real shop.
+- **Fastest (recommended): Docker** — one command, full site in ~3 minutes.
+- **Any host:** install PrestaShop normally, then drop in the theme + import the CSV.
 
----
-
-## A. PrestaShop + your products (no code)
-
-1. **Install PrestaShop.**
-   - Easiest: a host with 1-click PrestaShop (e.g. most cPanel hosts), or
-   - Local: download from prestashop.com, or run the official Docker image, or use
-     a local stack (XAMPP/MAMP). You need PHP + MySQL.
-2. **Log into the admin** (`/admin` — the folder gets a random suffix during install).
-3. **Create categories** that match the menu sections:
-   `Catalog → Categories` → add **Mains**, **Desserts**, **Drinks**.
-4. **Add your dishes as products:** `Catalog → Products → Add new product`.
-   - Fill in name, price, short description, a photo, and assign a category.
-   - Repeat for each dish. (Bulk option: `Catalog → Import` from a CSV.)
-   - This — not any file — is what "puts the products on the site."
-5. Set shop name, logo, currency and contact details in
-   `Shop Parameters` and `Store Settings`.
-
-At this point you have a working shop on the default (classic) look.
-
----
-
-## B. Apply the Taste of Crimea design (the child theme)
-
-The theme in `theme/tasteofcrimea/` is a **child of the built-in classic theme**:
-it reuses all of classic's working machinery (cart, checkout, header, footer) and
-only overrides the styling plus the product page and product card.
-
-1. **Add a preview image.** Put a `preview.png` (≈ 570×402) in
-   `theme/tasteofcrimea/` — a screenshot of the homepage works. PrestaShop shows
-   it in the theme picker.
-2. **Zip and upload:**
-   - Zip the **contents** of `theme/tasteofcrimea/` so `config/theme.yml` sits at
-     the root of the zip.
-   - Admin → `Design → Theme & Logo → Add new theme → Import from your computer`.
-   - Or copy the `tasteofcrimea/` folder straight into `themes/` on the server.
-3. **Activate it:** `Design → Theme & Logo → Use this theme`.
-4. **Check the result:**
-   - Product pages use `catalog/product.tpl`.
-   - Category / menu grids use the card in
-     `catalog/_partials/miniatures/product.tpl`.
-   - `assets/css/custom.css` styles everything (it's a copy of the site's CSS).
-
-### What's included vs. what you may still want
-| Included | Notes |
-|----------|-------|
-| `config/theme.yml` | Declares the child theme + loads `custom.css` |
-| `assets/css/custom.css` | The full Taste of Crimea styling |
-| `catalog/product.tpl` | Product detail page |
-| `catalog/_partials/miniatures/product.tpl` | Product card for all listings |
-
-| Not included (optional next steps) | How to do it |
-|------------------------------------|--------------|
-| Homepage hero / "why us" blocks | Edit `templates/index.tpl` in the child theme, or use the "Custom HTML" / image-slider modules |
-| Header / footer tweaks | Override `templates/_partials/header.tpl` / `footer.tpl` |
-| Booking form | The `contactform` module, or a custom module |
-
-### If the CSS doesn't load
-Some versions are picky about the `theme.yml` `assets` block. Reliable fallback —
-register the stylesheet from a tiny module hooking `actionFrontControllerSetMedia`:
-
-```php
-public function hookActionFrontControllerSetMedia()
-{
-    $this->context->controller->registerStylesheet(
-        'taste-of-crimea',
-        $this->_path.'views/css/custom.css',
-        ['media' => 'all', 'priority' => 200]
-    );
-}
+```
+prestashop/
+├── docker-compose.yml            # boots PrestaShop 8 + MySQL, theme mounted in
+├── import/products.csv           # the 9 dishes, ready to import
+├── theme/tasteofcrimea/          # the child theme (the design)
+│   ├── config/theme.yml
+│   ├── assets/css/custom.css
+│   └── templates/
+│       ├── index.tpl             # homepage: hero, why-us, featured, CTA
+│       └── catalog/
+│           ├── product.tpl                       # product page
+│           └── _partials/miniatures/product.tpl  # product card
+└── README.md
 ```
 
-(Place `custom.css` under the module's `views/css/` and enable the module.)
+---
+
+## Option 1 — Docker (fastest)
+
+Prerequisites: Docker Desktop (or Docker Engine + compose).
+
+```bash
+cd prestashop
+docker compose up -d
+```
+
+First boot auto-installs PrestaShop (give it ~2–3 min). Then:
+
+| | URL / value |
+|---|---|
+| Storefront | http://localhost:8080 |
+| Admin | http://localhost:8080/admincafe |
+| Admin email | hello@tasteofcrimea.com |
+| Admin password | PrestaShop123! |
+
+**Finish the setup (once, in the admin):**
+1. **Import products:** `Advanced Parameters → … → Import` (or `Catalog → Import`)
+   → upload `import/products.csv`, entity **Products**, field separator `;`,
+   then run. (Categories Mains / Desserts / Drinks are created automatically.)
+2. **Activate the theme:** `Design → Theme & Logo → Use this theme` →
+   "Taste of Crimea".
+3. **Mark a few dishes as "featured"** so they show on the homepage:
+   edit a product → tick *"Home"* / add to the **Home** category (the
+   `ps_featuredproducts` module shows those).
+4. **Menu links:** `Design → Link List` (ps_mainmenu) → point the top menu at
+   Home / Menu (the Mains category or a "Menu" CMS page) / Contact.
+
+That's a full, working shop: browse, add to cart, checkout, the lot.
+
+Stop / reset:
+```bash
+docker compose down          # stop, keep data
+docker compose down -v       # stop and wipe (fresh install next time)
+```
 
 ---
 
-## TL;DR
-- Products live in the **database**, entered via the admin — no file does that.
-- The **look** is this child theme: install it, activate it, done.
-- It's **not** "one `.tpl` and finished" — it's a CSS file + a couple of templates
-  wrapped as a theme, plus your product data.
+## Option 2 — Existing / hosted PrestaShop
+
+1. Install PrestaShop 1.7.6+ / 8.x (1-click on most hosts, or manual).
+2. Copy `theme/tasteofcrimea/` into the site's `themes/` folder
+   (or zip its **contents** and `Design → Theme & Logo → Add new theme → Import`).
+   Add a `preview.png` (~570×402, a homepage screenshot) in the theme root so it
+   shows in the picker.
+3. `Design → Theme & Logo → Use this theme`.
+4. Import `import/products.csv` and configure the menu, exactly as in steps 1–4 above.
+
+---
+
+## What's turnkey vs. what still needs a pass
+
+**Turnkey now:** a running shop, all 9 products, categories, working cart &
+checkout, the homepage (hero / why-us / featured / CTA), the product page and the
+product cards — all in the café's styling.
+
+**Still classic-styled (optional polish):** PrestaShop's **header and footer** come
+from the classic parent and its modules (logo, top menu, footer links). The custom
+CSS themes the content and custom pages; matching the header/footer *pixel-for-pixel*
+to the static mockup means overriding `_partials/header.tpl` / `footer.tpl` and the
+menu module — a further iteration.
+
+**Booking form:** use the built-in `Contact` page + `contactform` module (already
+in classic). A bespoke "book a table" form is a small custom module if you want the
+exact fields from the mockup.
+
+> ⚠️ I couldn't run this specific stack from here to verify it end-to-end, and
+> PrestaShop templating is version-sensitive. Run it on a local/staging copy first;
+> the Docker option makes that a 3-minute check. Tell me what breaks and I'll fix it.
