@@ -24,7 +24,8 @@ python3 -m http.server 8000
 
 ## Adapting to PrestaShop
 
-**Short answer: yes, it's realistic, and a starter file already lives in `prestashop/`.**
+**Short answer: yes, it's realistic. A starter child theme lives in `prestashop/theme/`,
+and a full step-by-step guide is in [`prestashop/README.md`](prestashop/README.md).**
 
 Here's the key thing about how PrestaShop works: the engine is written in PHP,
 and pages are rendered not from `.html` files but from **Smarty** templates
@@ -49,15 +50,16 @@ Needs adapting for PrestaShop:
 | Booking form               | contact module / custom module                   |
 | Header/footer              | theme's `header.tpl` / `footer.tpl`              |
 
-`prestashop/product.tpl` is a working example: the same product-page layout, but
-the data comes from PrestaShop (image, name, price, features, add-to-cart form).
+`prestashop/theme/tasteofcrimea/` is a starter **child theme** of the classic theme:
+`theme.yml`, the CSS, the product page (`catalog/product.tpl`) and the product card
+(`catalog/_partials/miniatures/product.tpl`), all wired to PrestaShop data.
 
 ### Migration steps
 1. Create (or make a child of) a theme in `themes/`.
 2. Copy `style.css` into the theme's assets and enqueue it in `_partials/`.
 3. Split the header/footer into `header.tpl` / `footer.tpl`.
 4. Move the product card and product page into `catalog/*.tpl`
-   (using `prestashop/product.tpl` as a base).
+   (the `prestashop/theme/` starter already has both).
 5. Create the dishes as products, with categories "Mains / Desserts / Drinks".
 6. Build the booking form as a separate module or via the contact form.
 

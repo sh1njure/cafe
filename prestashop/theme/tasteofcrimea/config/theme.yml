@@ -1,0 +1,35 @@
+# Child theme of PrestaShop's built-in "classic" theme.
+# It inherits everything from classic and overrides only the CSS
+# and a couple of templates, so it stays small and upgrade-safe.
+# Targets PrestaShop 1.7.6+ / 8.x. Test on a staging site first.
+name: tasteofcrimea
+display_name: Taste of Crimea
+version: 1.0.0
+author:
+  name: Taste of Crimea
+  email: hello@tasteofcrimea.com
+  url: https://www.tasteofcrimea.com
+
+parent: classic
+
+meta:
+  compatibility:
+    from: 1.7.6.0
+    to: ~
+  available_layouts:
+    layout-full-width:
+      name: Full width
+      description: No side columns — clean, distraction-free browsing.
+
+# Load classic's assets, then add our own stylesheet on top.
+assets:
+  use_parent_assets: true
+  css:
+    all:
+      - id: taste-of-crimea
+        path: assets/css/custom.css
+        media: all
+        priority: 200
+
+global_settings:
+  configuration: {}

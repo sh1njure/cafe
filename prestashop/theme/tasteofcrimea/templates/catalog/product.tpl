@@ -1,9 +1,7 @@
 {*
-  Example of adapting the product page to PrestaShop (Smarty).
-  Same layout as product.html, but the static data is replaced with
-  PrestaShop variables. Place this file in your theme at:
-    themes/<your-theme>/templates/catalog/product.tpl
-  and inherit the styles from assets/css/style.css.
+  Product detail page — Taste of Crimea child theme.
+  Same layout as the static product.html, but data comes from PrestaShop.
+  Overrides classic's templates/catalog/product.tpl.
 *}
 {extends file='page.tpl'}
 
@@ -19,12 +17,12 @@
 
     <div class="product-detail">
 
-      {* Product image from PrestaShop; monogram fallback if there's no photo *}
+      {* Product image; monogram fallback if there's no photo *}
       <div class="product-media">
         {if $product.cover}
-          <img src="{$product.cover.large.url}" alt="{$product.name}">
+          <img src="{$product.cover.large.url}" alt="{$product.name|escape:'html':'UTF-8'}">
         {else}
-          <span>{$product.name|truncate:10:''}</span>
+          <span>{$product.name|truncate:10:''|escape:'html':'UTF-8'}</span>
         {/if}
       </div>
 
@@ -43,7 +41,7 @@
           <input type="hidden" name="qty" value="1">
 
           <div class="qty">
-            <button type="button" class="js-minus" aria-label="Less">−</button>
+            <button type="button" class="js-minus" aria-label="Less">&minus;</button>
             <input type="text" name="qty_display" value="1" readonly>
             <button type="button" class="js-plus" aria-label="More">+</button>
           </div>
